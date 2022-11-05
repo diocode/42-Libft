@@ -6,7 +6,7 @@
 /*   By: digoncal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 14:55:48 by digoncal          #+#    #+#             */
-/*   Updated: 2022/11/04 13:27:26 by digoncal         ###   ########.fr       */
+/*   Updated: 2022/11/05 10:51:53 by digoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	main(void)
 {
 	//char	x = 'v';
 	//int		y = 25;
-	char str1[999] = "Hello is it me"; 
-	char str2 = 'i';
+	char str1[999] = "    -- 32323Hello is it me"; 
+	//char str2 = 'i';
 
-	printf("%s\n", ft_strrchr(str1, str2));
+	printf("%d\n", ft_atoi(str1));
 	return (0);
 }
