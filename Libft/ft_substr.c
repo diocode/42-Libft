@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: digoncal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 14:55:48 by digoncal          #+#    #+#             */
-/*   Updated: 2022/11/07 15:10:06 by digoncal         ###   ########.fr       */
+/*   Created: 2022/11/07 09:31:51 by digoncal          #+#    #+#             */
+/*   Updated: 2022/11/07 14:50:29 by digoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
-int	main(void)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	//char	x = 'v';
-	//int		y = 25;
-	char str1[] = "Hello is it me you're looking for?";
-	char str2[] = "I can see it in your eyes";
-	//char str2 = 'i';
-	char *str = ft_strjoin(str1, str2);
+	int		i;
+	char	*str;
 
-	printf("%s", str);
-	free(str);
-	return (0);
+	str = (char *) malloc((len + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (s[start] && len--)
+		str[i++] = s[start++];
+	str[i] = '\0';
+	return (str);
 }

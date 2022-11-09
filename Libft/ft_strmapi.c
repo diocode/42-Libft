@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: digoncal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 14:55:48 by digoncal          #+#    #+#             */
-/*   Updated: 2022/11/07 15:10:06 by digoncal         ###   ########.fr       */
+/*   Created: 2022/11/09 16:14:40 by digoncal          #+#    #+#             */
+/*   Updated: 2022/11/09 16:58:28 by digoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
-int	main(void)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	//char	x = 'v';
-	//int		y = 25;
-	char str1[] = "Hello is it me you're looking for?";
-	char str2[] = "I can see it in your eyes";
-	//char str2 = 'i';
-	char *str = ft_strjoin(str1, str2);
+	unsigned int	i;
+	char			*str;
 
-	printf("%s", str);
-	free(str);
-	return (0);
+	if (!s || !f)
+		return (NULL);
+	str = malloc(sizeof(char) * (ft_strlen((char *) s) + 1));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		str[i] = f(i, s[i]);
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
