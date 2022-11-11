@@ -6,7 +6,7 @@
 /*   By: digoncal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:21:23 by digoncal          #+#    #+#             */
-/*   Updated: 2022/11/10 12:17:18 by digoncal         ###   ########.fr       */
+/*   Updated: 2022/11/11 16:44:00 by digoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -37,7 +37,7 @@ static int	ft_word_size(char const *s, char c, int i)
 	int	len;
 
 	len = 0;
-	while (s[i] != c)
+	while (s[i] != c && s[i])
 	{
 		i++;
 		len++;
@@ -45,7 +45,7 @@ static int	ft_word_size(char const *s, char c, int i)
 	return (len);
 }
 
-static char	*ft_word(char **arr, char *s, int i, int j, char c)
+static char	*ft_word(char **arr, char *s, int i, char c)
 {
 	char	*word;
 	int		wsize;
@@ -54,8 +54,8 @@ static char	*ft_word(char **arr, char *s, int i, int j, char c)
 	word = ft_substr(s, i, wsize);
 	if (!arr)
 	{
-		while (j >= 0)
-			free(arr[j--]);
+		while (*arr--)
+			free(*arr--);
 		free(arr);
 		return (NULL);
 	}
@@ -67,7 +67,6 @@ char	**ft_split(char const *s, char c)
 	int		words;
 	int		i;
 	int		j;
-	int		wsize;
 	char	**arr;
 
 	words = ft_words(s, c);
@@ -76,13 +75,12 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	i = 0;
 	j = -1;
-	while (j++ < words)
+	while (++j < words)
 	{
 		while (s[i] == c)
 			i++;
-		wsize = ft_word_size(s, c, i);
-		arr[j] = ft_word(arr, (char *)s, i, j, c);
-		i += wsize;
+		arr[j] = ft_word(arr + j, (char *)s, i, c);
+		i += ft_word_size(s, c, i);
 	}
 	arr[j] = 0;
 	return (arr);

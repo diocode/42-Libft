@@ -6,22 +6,19 @@
 /*   By: digoncal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 18:07:43 by digoncal          #+#    #+#             */
-/*   Updated: 2022/11/10 15:19:24 by digoncal         ###   ########.fr       */
+/*   Updated: 2022/11/11 12:01:40 by digoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	char	*s;
-
-	s = (char *) str;
 	while (*s != c)
 	{
 		if (*s == '\0')
 			return (0);
 		s++;
 	}
-	return (s);
+	return ((char *)s);
 }
