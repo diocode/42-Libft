@@ -54,7 +54,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	if (!set)
 		return (ft_strdup(s1));
-	if (start >= end)
+	if (start > end)
 		return (ft_strdup(""));
 	str = (char *) malloc(sizeof(char) * (end - start + 1));
 	if (!str)

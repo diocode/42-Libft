@@ -1,38 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: digoncal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 16:26:59 by digoncal          #+#    #+#             */
-/*   Updated: 2022/11/11 09:34:44 by digoncal         ###   ########.fr       */
+/*   Created: 2022/11/10 10:36:50 by digoncal          #+#    #+#             */
+/*   Updated: 2022/11/10 10:47:53 by digoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+void	ft_putchar_fd(char c, int fd)
 {
-	size_t		i;
-	size_t		j;
-	char		*pbig;
-	char		*plittle;
-
-	pbig = (char *) big;
-	plittle = (char *) little;
-	i = 0;
-	j = 0;
-	if (!plittle[j])
-		return (pbig);
-	while (pbig[i] && i < len)
-	{
-		while (pbig[i + j] && pbig[i + j] == plittle[j] && (i + j) < len)
-			j++;
-		if (!plittle[j])
-			return (pbig + i);
-		i++;
-		j = 0;
-	}
-	return (0);
+	if (fd < 0)
+		return ;
+	write(fd, &c, 1);
 }

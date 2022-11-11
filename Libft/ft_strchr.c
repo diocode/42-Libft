@@ -6,7 +6,7 @@
 /*   By: digoncal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 18:07:43 by digoncal          #+#    #+#             */
-/*   Updated: 2022/11/04 12:03:09 by digoncal         ###   ########.fr       */
+/*   Updated: 2022/11/10 15:19:24 by digoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 char	*ft_strchr(const char *str, int c)
 {
-	while (*str)
+	char	*s;
+
+	s = (char *) str;
+	while (*s != c)
 	{
-		if (*str == c)
-			return ((char *) str);
-		str++;
+		if (*s == '\0')
+			return (0);
+		s++;
 	}
-	return (0);
+	return (s);
 }

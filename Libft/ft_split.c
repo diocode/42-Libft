@@ -6,7 +6,7 @@
 /*   By: digoncal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:21:23 by digoncal          #+#    #+#             */
-/*   Updated: 2022/11/09 09:37:19 by digoncal         ###   ########.fr       */
+/*   Updated: 2022/11/10 12:17:18 by digoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -45,7 +45,7 @@ static int	ft_word_size(char const *s, char c, int i)
 	return (len);
 }
 
-static char	*ft_word(char **arr, char *s, int i, int j)
+static char	*ft_word(char **arr, char *s, int i, int j, char c)
 {
 	char	*word;
 	int		wsize;
@@ -81,7 +81,7 @@ char	**ft_split(char const *s, char c)
 		while (s[i] == c)
 			i++;
 		wsize = ft_word_size(s, c, i);
-		arr[j] = ft_word(arr, (char *)s, wsize, i, j);
+		arr[j] = ft_word(arr, (char *)s, i, j, c);
 		i += wsize;
 	}
 	arr[j] = 0;

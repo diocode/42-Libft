@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: digoncal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 16:26:59 by digoncal          #+#    #+#             */
-/*   Updated: 2022/11/11 09:34:44 by digoncal         ###   ########.fr       */
+/*   Created: 2022/11/10 11:40:23 by digoncal          #+#    #+#             */
+/*   Updated: 2022/11/10 11:56:14 by digoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t		i;
-	size_t		j;
-	char		*pbig;
-	char		*plittle;
-
-	pbig = (char *) big;
-	plittle = (char *) little;
-	i = 0;
-	j = 0;
-	if (!plittle[j])
-		return (pbig);
-	while (pbig[i] && i < len)
+	if (n == -2147483648)
 	{
-		while (pbig[i + j] && pbig[i + j] == plittle[j] && (i + j) < len)
-			j++;
-		if (!plittle[j])
-			return (pbig + i);
-		i++;
-		j = 0;
+		ft_putchar_fd('-', fd);
+		ft_putchar_fd('2', fd);
+		n = 147483648;
 	}
-	return (0);
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n = -n;
+	}
+	if (n >= 10)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		n = n % 10;
+	}
+	if (n < 10)
+	{
+		ft_putchar_fd(n + 48, fd);
+	}
 }
