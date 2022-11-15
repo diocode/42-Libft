@@ -6,7 +6,7 @@
 /*   By: digoncal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 09:31:51 by digoncal          #+#    #+#             */
-/*   Updated: 2022/11/11 17:21:41 by digoncal         ###   ########.fr       */
+/*   Updated: 2022/11/15 11:46:10 by digoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	int		i;
 	char	*str;
 
+	if (!s)
+		return (0);
 	if (start >= (unsigned int)ft_strlen((char *)s))
 	{
 		str = (char *) malloc(1);

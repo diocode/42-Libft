@@ -6,7 +6,7 @@
 /*   By: digoncal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 16:26:59 by digoncal          #+#    #+#             */
-/*   Updated: 2022/11/11 09:34:44 by digoncal         ###   ########.fr       */
+/*   Updated: 2022/11/15 12:06:53 by digoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	char		*pbig;
 	char		*plittle;
 
+	if (!big && !len)
+		return (0);
 	pbig = (char *) big;
 	plittle = (char *) little;
 	i = 0;

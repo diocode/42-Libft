@@ -6,7 +6,7 @@
 /*   By: digoncal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 15:42:56 by digoncal          #+#    #+#             */
-/*   Updated: 2022/11/08 14:19:37 by digoncal         ###   ########.fr       */
+/*   Updated: 2022/11/15 11:55:51 by digoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		end;
 	char	*str;
 
+	if (!s1)
+		return (0);
 	start = ft_start(s1, set);
 	end = ft_end(s1, set);
 	if (!s1)

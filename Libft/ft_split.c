@@ -6,7 +6,7 @@
 /*   By: digoncal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:21:23 by digoncal          #+#    #+#             */
-/*   Updated: 2022/11/11 16:44:00 by digoncal         ###   ########.fr       */
+/*   Updated: 2022/11/15 11:56:56 by digoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -69,6 +69,8 @@ char	**ft_split(char const *s, char c)
 	int		j;
 	char	**arr;
 
+	if (!s)
+		return (0);
 	words = ft_words(s, c);
 	arr = (char **) malloc((words + 1) * sizeof(char *));
 	if (!arr)
