@@ -1,4 +1,4 @@
-![so_long_banner-03](https://github.com/diocode/42-So_long/assets/107859177/f2d4d204-c35c-4eef-bb63-09aea6376882)
+![banners-08](https://github.com/diocode/42-Libft/assets/107859177/cc145406-c7f8-47ca-b22d-b7a450a8b0b3)
 
 <p align="center">
 	<img src="https://img.shields.io/badge/status-finished-success?color=%2312bab9&style=flat-square"/>
